@@ -26,7 +26,14 @@ namespace GetPosts
         {
             if (File.Exists(path))
             {
-                File.Delete(path);
+                try
+                {
+                    File.Delete(path);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Не получилось удалить файл: " + ex.ToString());
+                }
             }
         }
 
